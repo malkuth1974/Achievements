@@ -1,0 +1,140 @@
+﻿Lag times/What IS this?/Miracle of laggineering: 300/500/750 part vessel/station.
+
+Voyager: Send a Kerbal on a Kerbol escape trajectory with 10,000m/s dV left.
+Colony ship: Send 10 Kerbals in one vessel on a Voyager trajectory.
+Invasion: Send 100 Kerbals in one vessel on a Voyager trajectory.
+
+Outpost: Man/Kerbal an off-planet ground base for a year.
+Going quietly sane: An individual Kerbal in space continuously for a year.
+
+-------------------------------------------------------------------------------------------------------
+
+-Free return trajectory around Mun
+-Aerobraking into an orbit
+
+-------------------------------------------------------------------------------------------------------
+
+"Rapid Unplanned Disassembly!" achievement for exploding on the launchpad?
+
+"Any landing you can walk away from..." for a crash which has at least one surviving crewed command pod, and then EVA from that surviving pod.
+
+-------------------------------------------------------------------------------------------------------
+
+"Solid Rocket King" - Achieve orbit using only solid rocket boosters
+
+-------------------------------------------------------------------------------------------------------
+
+Emissary To The Stars: Reach 250 million km out on solar escape
+
+-------------------------------------------------------------------------------------------------------
+
+-"Tried it at least": Hit the abort button, all kerbals [die] anyhow.
+-"I Too Like to Live Dangerously" : Enter kerbins atmosphere with 6000m/s
+
+-------------------------------------------------------------------------------------------------------
+
+Don't Move or I'll Chute - Land safely using only parachutes.
+
+-------------------------------------------------------------------------------------------------------
+
+-"I have no memory of this place" - land at KSC2
+-"Dejavu" - Walk into the hangar on the island airfield(where the old stock parts are)
+
+-------------------------------------------------------------------------------------------------------
+
+"We need a kick" - have a fly-by trajectory of any body with atmosphere right above the atmosphere with no fuel left. (Supposing somebody failed aerobraking)
+"Pit stop" - have an escape trajectory after aerobraking
+"Over engineer 1st class" - Recover the vessel after at least orbital flight with more than 50% fuel left (Do not know if this is possible to spot though)
+"FIAL" - Have your rocket explode before take-off
+"Are you kidding?" - lose a Kerbal on EVA on the surface of planet (suppose that will be something like rover crashed the kerbal or some other silly situation)
+"That is not the droids we are looking for" - visit a crash site of another rocket after some time past the crash
+
+-------------------------------------------------------------------------------------------------------
+
+- "The wrong tool for the job" land a spaceplane on an airless body;
+- "Gemini" orbital rendezvous, and/or docking, definitely;
+- "Fire drill" swap all crew between two vessels in microgravity;
+
+-------------------------------------------------------------------------------------------------------
+
+"Ion't know how you did that" -Land using only ion engines (ie: Gilly or Minmus)
+"Three mile lander" -land on an atmospheric body using only nuclear engine thrust
+"The longest walk" -walk/run a kerbal 1(+?)km on his own little two feet
+"REPORT: DAMAGE MINIMAL" -collide a craft with one of the buildings at KSC2
+
+-------------------------------------------------------------------------------------------------------
+
+-Travel X distance/speed by rover on Kerbin(and other planets)
+-Travel X distance/speed over water on Kerbin(boat achievements)
+-Travel X diatance/speed by plane on Kerbin
+-Break the sound barrier. Mach 1, mach 2, mach 3, etc
+-Circumnavigation by boat/rover/plane
+
+-------------------------------------------------------------------------------------------------------
+
+Around the world: complete a round trip around Kerbin, using a jet powered aircraft.
+Same stuff, but for Laythe.
+Pole dancer: Land on both poles of Kerbin, using jet powered aircraft.
+UKSS - Build a space station in LKO, using more then 5/10/20/50/100 docked modules.
+Master of aerobreaking - Aerobreak into orbit from velocities higher then 5km/s, 8km/s, 10km/s.
+Ramming speed! - Collide 2 ships in space, destroying both and killing all the crew in process.
+Mun walk - land on both Mun and Minmus in one launch.
+Rock collection - Obtain surface samples from all planets and bring them back to Kerbin (transmitting science doesn't count).
+'Eavy Metal - Launch a ship that weights more then 5/10/25/50 ton.
+
+-------------------------------------------------------------------------------------------------------
+
+PLANETS
+That was easy-get yourself in to space/ 10
+A little higher- orbit of 200, 000 or more/10
+"ITs well... grey.... and bumpy."- get to the muns soi/20
+If only I had something to say- land on the mun
+Minmulist- get to minmus soi/ 20
+Looks like candy!-land on minmus.
+"gentleman take a walk"- EVA land on minmus / 40
+And it’s out of here! - leave kerbin SOI
+don’t need no fancy equipment. - reach duna SOI an dorbit/40
+A little Curiosity.-land on duna/50
+purple is the new black! - reach eve SOI and orbit/40
+H2OOOOOOO?- land in an eve ocean/50
+It’s getting hot in here! - perform an aero brake/reentry /10
+It’s biggy!-reach jool SOI and orbit/50
+my favorite color! - fly through jools atmosphere/100
+How in the name of physics?-land on jool
+A sister she is-reach lathye orbit
+we can breathe here?-land on lethye/150
+DAT sun!- land on moho
+
+ANOMALY'S
+kerbin
+WE actually used this?!-find the MK1 grave
+Who put this here?- find the island airport
+Kermunists?- find KSC2
+Koswell!?- find the UFO on kerbin
+The ancients knew - find the pyramids
+mun
+I wonder if I could fly through this,- find a mun arch.
+Neil-who?- find the Neil Armstrong memorial
+Journey to the center of the mun!-find a mun hole
+not of this kuniverse- find the mun UFO
+
+-------------------------------------------------------------------------------------------------------
+
+Deep Impact: Send a class E Asteroid into the KSC
+Colony Drop: Crash a vessel with over 50 kerbals with a dry mass of over 1000 tons(or something about 10 times as massive as a normal space station, haven't really thought that hard on this) into a atmosphere and lose every kerbal in the crash
+Go big or...: Successfully grab a Class E Asteroid and give it a stable orbit around kerbin
+Go Home!: Successfully land a ship carrying a Class E Asteroid on Kerbin
+Bottle it up, save some for later!: Launch a ship from Kerbin with a Type E Asteroid in tow.
+
+-------------------------------------------------------------------------------------------------------
+
+- SSTGSO (Single Stage to geostationary (6 hours circular) orbit)
+- launch from specific Kerbinside launchpad/runway/helipad
+- land on specific Kerbinside runway/launchpad (after 10km altitude check of course)
+- visit all Kerbinside launch sites with the same vessel (no recoveries, probably difficult implementation)
+- complete 10/20/50/100/200/500/1000/2000/5000/10k/20k/50k contracts
+- fail 1/5/10/50/100 contracts
+- earn 100k/500k/1M/5M/10M/100M/1B/10B/100B funds
+- go bankrupt
+- scansat - scan 100% low res, hi res, biomes, anomalies of the body X (Kerbin, Mun, Minmus, planets, moons, and the sun)
+- tarsier - examine at least 10 bodies (collect science) from the orbit of body X (Kerbin, Mun, Minmus, planets, moons, and the sun)

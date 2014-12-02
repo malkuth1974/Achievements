@@ -1,0 +1,102 @@
+﻿1.6.3, 2014-07-27
+- In addition to the automatic update check, the plugin now also gets KSP versions
+  from the update check server. In case the currently running KSP version is one of
+  those versions, the plugin will not complain about being incompatible with this
+  KSP version. This saves both players' and the plugin author's time.
+- Updated for KSP 0.24.2 and Toolbar Plugin 1.7.6 (included.)
+
+1.6.2, 2014-07-25
+- Updated for KSP 0.24.1 and Toolbar Plugin 1.7.5 (included.)
+
+1.6.1, 2014-07-18
+- Achievements will now award 10 reputation instead of 5 science.
+- Updated for KSP 0.24.0 and Toolbar Plugin 1.7.4 (included.)
+
+1.6.0, 2014-04-02
+- Added 4 new achievements (now 136 total.)
+- Updated for KSP 0.23.5 and Toolbar Plugin 1.7.1 (included.)
+
+1.5.5, 2014-03-15
+- The achievements "We're Meant to Be Together" and "Base Builder" should now only trigger when
+  two actual docking ports are docked together.
+- Fixed a bug that caused several EVA achievements to trigger when a Kerbal was seated in a
+  command seat.
+- Updated for Toolbar Plugin 1.7.0 (included.)
+
+1.5.4, 2014-01-06
+- Fixed a bug that prevented the achievement "Sunburn" from getting earned correctly.
+- Clicking into the achievements list window will no longer click through in the editor.
+- Updated for Toolbar Plugin 1.4.1 (included.)
+
+1.5.3, 2013-12-17
+- Updated for Toolbar Plugin 1.2.0 (included) and KSP 0.23.0.
+
+1.5.2, 2013-12-11
+- Changed achievements button to use the Toolbar Plugin (included in download.)
+
+1.5.1, 2013-12-02
+- Added 4 new achievements (now 132 total.)
+
+1.5.0, 2013-11-16
+- Earned achievements are now saved on a per-save basis instead of globally. Conversion will
+  take place automatically when you open a save file.
+
+1.4.7, 2013-11-16
+- Fixed a bug that could prevent loading the Achievements Plugin correctly when trying to find
+  contributed achievements in other mods.
+
+1.4.6, 2013-11-10
+- Opened up the API so that other mods may contribute new achievements.
+- Added 1 new achievement (now 128 total.)
+
+1.4.5, 2013-11-09
+- You can now click on achievements in the list to see when they were earned, and with which vessel.
+- The plugin's UI does now properly hide if the player wants to hide all UI (via F2 key.)
+- Added 1 new achievement (now 127 total.)
+
+1.4.4, 2013-11-06
+- Added 32 new achievements (now 126 total.) Almost all of those new achievements are related to
+  Kragrathea's Planet Factory mod.
+
+1.4.3, 2013-10-26
+- The achievement "We're Meant to Be Together" now requires that the craft be in a stable orbit.
+- The achievement "Deep Down the Hole" has been renamed to "Deep Impact".
+- Added 4 new achievements (now 94 total.)
+
+1.4.2, 2013-10-23
+- All landing achievements now require that lateral speed be lower than 1.0 m/s. This is to prevent
+  only touching the surface with an airplane, then pulling up again, for example.
+- Added 6 new achievements (now 90 total.)
+
+1.4.1, 2013-10-22
+- The achievement "Kessler Syndrome" will now show an actual count of debris objects.
+- Added 4 new achievements (now 84 total.)
+
+1.4.0, 2013-10-20
+- The plugin will now check if a new version is available.
+- Added 6 new achievements (now 80 total.)
+
+1.3.1, 2013-10-19
+- Fixed a NullReferenceException.
+- Added 1 new achievement (now 74 total.)
+
+1.3.0, 2013-10-18
+- Every achievement earned will now award 5 science in career mode.
+- Added 2 new achievements (now 73 total), and renamed some achievements.
+
+1.2.1, 2013-10-17
+- Landing achievements don't count for EVA'd Kerbals anymore, they will require a vessel to be landed.
+- "Toast" sound clip will now play correctly even when the current vessel is destroyed.
+- Added 18 new achievements (now 71 total.)
+
+1.2.0, 2013-10-16
+- Updated for KSP 0.22. The plugin will no longer work with KSP 0.21.x.
+- Achievement "toast" will no longer be displayed on top of the nav ball.
+- Added 5 new achievements (now 53 total.)
+
+1.1.0, 2013-10-15
+- Added a list of all achievements available.
+- Added 4 new achievements (now 48 total.)
+
+1.0.0, 2013-10-13
+- Initial public release.

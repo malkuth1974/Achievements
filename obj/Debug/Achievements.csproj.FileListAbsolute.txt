@@ -1,0 +1,5 @@
+C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.csprojResolveAssemblyReference.cache
+C:\kerbal\(testMods)\GameData\Achievements.dll
+C:\kerbal\(testMods)\GameData\Achievements.pdb
+C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.dll
+C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.pdb
