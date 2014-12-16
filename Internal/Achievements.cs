@@ -26,12 +26,12 @@ namespace Achievements {
 	[KSPAddon(KSPAddon.Startup.EveryScene, false)]
 	internal class Achievements : MonoBehaviour {
 		internal const string UNKNOWN_VESSEL = "unknown";
-		internal const long VERSION = 18;
+		internal const long VERSION = 19;
 
 		private const long CHECK_INTERVAL = 1500;
 		private const float REPUTATION_REWARD = 10;
 
-		internal static UpdateChecker UpdateChecker;
+        internal static UpdateChecker UpdateChecker;
 
 		private long lastCheck = 0;
 		private AudioClip achievementEarnedClip;
@@ -46,9 +46,10 @@ namespace Achievements {
 		private bool showGui = true;
 
 		protected void Start() {
-			if (UpdateChecker == null) {
-				UpdateChecker = new UpdateChecker();
-			}
+            if (UpdateChecker == null)
+            {
+                UpdateChecker = new UpdateChecker();
+            }
 
 			achievementEarnedClip = GameDatabase.Instance.GetAudioClip("Achievements/achievement");
 			achievementEarnedAudioSource = gameObject.AddComponent<AudioSource>();
@@ -61,7 +62,7 @@ namespace Achievements {
 			windowButton = ToolbarManager.Instance.add("achievements", "achievements");
 			windowButton.TexturePath = "Achievements/button-normal";
 			windowButton.ToolTip = "Achievements";
-			windowButton.Visibility = new GameScenesVisibility(GameScenes.FLIGHT, GameScenes.TRACKSTATION, GameScenes.EDITOR, GameScenes.SPH);
+			windowButton.Visibility = new GameScenesVisibility(GameScenes.FLIGHT, GameScenes.TRACKSTATION, GameScenes.EDITOR);
 			windowButton.OnClick += (e) => toggleAchievementsWindow();
 
 			GameEvents.onShowUI.Add(onShowUI);

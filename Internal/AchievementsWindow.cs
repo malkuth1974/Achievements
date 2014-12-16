@@ -23,7 +23,7 @@ using UnityEngine;
 
 namespace Achievements {
 	internal class AchievementsWindow {
-		private const string FORUM_THREAD_URL = "http://forum.kerbalspaceprogram.com/threads/52535";
+        private const string FORUM_THREAD_URL = "http://forum.kerbalspaceprogram.com/threads/101801-Achievements-1-7-0-Earn-145-achievements-while-playing-%28KSP-25%29-%2812-2-14%29";
 
 		internal Callback closeCallback;
 

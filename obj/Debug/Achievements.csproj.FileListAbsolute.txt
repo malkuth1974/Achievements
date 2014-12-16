@@ -3,3 +3,5 @@ C:\kerbal\(testMods)\GameData\Achievements.dll
 C:\kerbal\(testMods)\GameData\Achievements.pdb
 C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.dll
 C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.pdb
+C:\kerbal\(testMods)\GameData\Achievements\Achievements.dll
+C:\kerbal\(testMods)\GameData\Achievements\Achievements.pdb

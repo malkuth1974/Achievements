@@ -51,7 +51,7 @@ namespace Achievements {
 			\*-----------------------------------------------*/
 
 			const int major = 0;
-			const int minor = 25;
+			const int minor = 90;
 			const int revision = 0;
 
 			bool hardcodedOk = (Versioning.version_major == major) && (Versioning.version_minor == minor) && (Versioning.Revision == revision);

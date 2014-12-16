@@ -65,7 +65,7 @@ namespace Achievements {
 			if ((game != null) && !game.scenarios.Any(s => s.moduleName == typeof(EarnedAchievements).Name)) {
 				// add scenario to game
 				ProtoScenarioModule scenario = game.AddProtoScenarioModule(typeof(EarnedAchievements),
-					GameScenes.EDITOR, GameScenes.FLIGHT, GameScenes.SPACECENTER, GameScenes.SPH, GameScenes.TRACKSTATION);
+					GameScenes.EDITOR, GameScenes.FLIGHT, GameScenes.SPACECENTER, GameScenes.TRACKSTATION);
 
 				// load scenario instantly
 				if (scenario.targetScenes.Contains(HighLogic.LoadedScene)) {

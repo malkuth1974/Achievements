@@ -58,13 +58,18 @@ namespace Achievements
 
         public override bool check(Vessel vessel)
         {
-            if (Reputation.Instance.reputation >= repAmount && !negCheck)
+            if (HighLogic.CurrentGame.Mode == Game.Modes.CAREER)
             {
-                return true;
-            }
-            else if (Reputation.Instance.reputation <= repAmount && negCheck)
-            {
-                return true;
+                if (Reputation.Instance.reputation >= repAmount && !negCheck)
+                {
+                    return true;
+                }
+                else if (Reputation.Instance.reputation <= repAmount && negCheck)
+                {
+                    return true;
+                }
+                else 
+                    return false;
             }
             else
                 return false;

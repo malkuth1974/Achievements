@@ -56,12 +56,17 @@ namespace Achievements
 
         public override bool check(Vessel vessel)
         {
-            if (Funding.Instance.Funds >= fundsAmount)
+            if (HighLogic.CurrentGame.Mode == Game.Modes.CAREER)
             {
-                return true;
+                if (Funding.Instance.Funds >= fundsAmount)
+                {
+                    return true;
+                }
+                else
+                    return false;
             }
             else
-            return false;
+                return false;
         }
 
         public override string getTitle()

@@ -57,12 +57,17 @@ namespace Achievements
 
         public override bool check(Vessel vessel)
         {
-            if (ContractSystem.Instance.ContractsFinished.Count >= ContractAmounts)
+            if (HighLogic.CurrentGame.Mode == Game.Modes.CAREER)
             {
-                return true;
+                if (ContractSystem.Instance.ContractsFinished.Count >= ContractAmounts)
+                {
+                    return true;
+                }
+                else
+                    return false;
             }
             else
-            return false;
+                return false;
         }
 
         public override string getTitle()
