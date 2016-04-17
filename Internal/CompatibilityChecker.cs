@@ -45,112 +45,112 @@ namespace Achievements {
 
 	[KSPAddon(KSPAddon.Startup.MainMenu, true)]
 	internal class CompatibilityChecker : MonoBehaviour {
-		public static bool IsCompatible() {
-			/*-----------------------------------------------*\
-			|    BEGIN IMPLEMENTATION-SPECIFIC EDITS HERE.    |
-			\*-----------------------------------------------*/
+		//public static bool IsCompatible() {
+		//	/*-----------------------------------------------*\
+		//	|    BEGIN IMPLEMENTATION-SPECIFIC EDITS HERE.    |
+		//	\*-----------------------------------------------*/
 
-			const int major = 0;
-			const int minor = 90;
-			const int revision = 0;
+		//	const int major = 0;
+		//	const int minor = 90;
+		//	const int revision = 0;
 
-			bool hardcodedOk = (Versioning.version_major == major) && (Versioning.version_minor == minor) && (Versioning.Revision == revision);
-			bool kspVersionOk = false;
+		//	bool hardcodedOk = (Versioning.version_major == major) && (Versioning.version_minor == minor) && (Versioning.Revision == revision);
+		//	bool kspVersionOk = false;
 
-			string currentKspVersion = string.Format(CultureInfo.InvariantCulture, "{0:F0}.{1:F0}.{2:F0}",
-				Versioning.version_major, Versioning.version_minor, Versioning.Revision);
-			if (hardcodedOk) {
-				Log.info("current KSP version {0} is compatible (hardcoded)", currentKspVersion);
-			} else {
-				if (Achievements.UpdateChecker.Done &&
-					(Achievements.UpdateChecker.KspVersions != null) &&
-					(Achievements.UpdateChecker.KspVersions.Length > 0)) {
+		//	string currentKspVersion = string.Format(CultureInfo.InvariantCulture, "{0:F0}.{1:F0}.{2:F0}",
+		//		Versioning.version_major, Versioning.version_minor, Versioning.Revision);
+		//	if (hardcodedOk) {
+		//		Log.info("current KSP version {0} is compatible (hardcoded)", currentKspVersion);
+		//	} else {
+		//		if (Achievements.UpdateChecker.Done &&
+		//			(Achievements.UpdateChecker.KspVersions != null) &&
+		//			(Achievements.UpdateChecker.KspVersions.Length > 0)) {
 
-					foreach (string kspVersion in Achievements.UpdateChecker.KspVersions) {
-						if (kspVersion == currentKspVersion) {
-							Log.info("current KSP version {0} is compatible (via update check)", currentKspVersion);
-							kspVersionOk = true;
-							break;
-						}
-					}
-					if (!kspVersionOk) {
-						Log.warn("current KSP version {0} is incompatible (via update check)", currentKspVersion);
-					}
-				} else {
-					Log.warn("current KSP version {0} is incompatible (hardcoded)", currentKspVersion);
-				}
-			}
+		//			foreach (string kspVersion in Achievements.UpdateChecker.KspVersions) {
+		//				if (kspVersion == currentKspVersion) {
+		//					Log.info("current KSP version {0} is compatible (via update check)", currentKspVersion);
+		//					kspVersionOk = true;
+		//					break;
+		//				}
+		//			}
+		//			if (!kspVersionOk) {
+		//				Log.warn("current KSP version {0} is incompatible (via update check)", currentKspVersion);
+		//			}
+		//		} else {
+		//			Log.warn("current KSP version {0} is incompatible (hardcoded)", currentKspVersion);
+		//		}
+		//	}
 
-			return hardcodedOk || kspVersionOk;
+		//	return hardcodedOk || kspVersionOk;
 
-			/*-----------------------------------------------*\
-			| IMPLEMENTERS SHOULD NOT EDIT BEYOND THIS POINT! |
-			\*-----------------------------------------------*/
-		}
+		//	/*-----------------------------------------------*\
+		//	| IMPLEMENTERS SHOULD NOT EDIT BEYOND THIS POINT! |
+		//	\*-----------------------------------------------*/
+		//}
 
-		// Version of the compatibility checker itself.
-		private static int _version = 2;
+		//// Version of the compatibility checker itself.
+		//private static int _version = 2;
 
-		public void Start() {
-			// Checkers are identified by the type name and version field name.
-			FieldInfo[] fields =
-				getAllTypes()
-				.Where(t => t.Name == "CompatibilityChecker")
-				.Select(t => t.GetField("_version", BindingFlags.Static | BindingFlags.NonPublic))
-				.Where(f => f != null)
-				.Where(f => f.FieldType == typeof(int))
-				.ToArray();
+		//public void Start() {
+		//	// Checkers are identified by the type name and version field name.
+		//	FieldInfo[] fields =
+		//		getAllTypes()
+		//		.Where(t => t.Name == "CompatibilityChecker")
+		//		.Select(t => t.GetField("_version", BindingFlags.Static | BindingFlags.NonPublic))
+		//		.Where(f => f != null)
+		//		.Where(f => f.FieldType == typeof(int))
+		//		.ToArray();
 
-			// Let the latest version of the checker execute.
-			if (_version != fields.Max(f => (int) f.GetValue(null))) {
-				return;
-			}
+		//	// Let the latest version of the checker execute.
+		//	if (_version != fields.Max(f => (int) f.GetValue(null))) {
+		//		return;
+		//	}
 
-			Debug.Log(String.Format("[CompatibilityChecker] Running checker version {0} from '{1}'", _version, Assembly.GetExecutingAssembly().GetName().Name));
+		//	Debug.Log(String.Format("[CompatibilityChecker] Running checker version {0} from '{1}'", _version, Assembly.GetExecutingAssembly().GetName().Name));
 
-			// Other checkers will see this version and not run.
-			// This accomplishes the same as an explicit "ran" flag with fewer moving parts.
-			_version = int.MaxValue;
+		//	// Other checkers will see this version and not run.
+		//	// This accomplishes the same as an explicit "ran" flag with fewer moving parts.
+		//	_version = int.MaxValue;
 
-			// A mod is incompatible if its compatibility checker has an IsCompatible method which returns false.
-			String[] incompatible =
-				fields
-				.Select(f => f.DeclaringType.GetMethod("IsCompatible", Type.EmptyTypes))
-				.Where(m => m.IsStatic)
-				.Where(m => m.ReturnType == typeof(bool))
-				.Where(m => {
-					try {
-						return !(bool) m.Invoke(null, new object[0]);
-					} catch (Exception e) {
-						// If a mod throws an exception from IsCompatible, it's not compatible.
-						Debug.LogWarning(String.Format("[CompatibilityChecker] Exception while invoking IsCompatible() from '{0}':\n\n{1}", m.DeclaringType.Assembly.GetName().Name, e));
-						return true;
-					}
-				})
-				.Select(m => m.DeclaringType.Assembly.GetName().Name)
-				.ToArray();
+		//	// A mod is incompatible if its compatibility checker has an IsCompatible method which returns false.
+		//	String[] incompatible =
+		//		fields
+		//		.Select(f => f.DeclaringType.GetMethod("IsCompatible", Type.EmptyTypes))
+		//		.Where(m => m.IsStatic)
+		//		.Where(m => m.ReturnType == typeof(bool))
+		//		.Where(m => {
+		//			try {
+		//				return !(bool) m.Invoke(null, new object[0]);
+		//			} catch (Exception e) {
+		//				// If a mod throws an exception from IsCompatible, it's not compatible.
+		//				Debug.LogWarning(String.Format("[CompatibilityChecker] Exception while invoking IsCompatible() from '{0}':\n\n{1}", m.DeclaringType.Assembly.GetName().Name, e));
+		//				return true;
+		//			}
+		//		})
+		//		.Select(m => m.DeclaringType.Assembly.GetName().Name)
+		//		.ToArray();
 
-			Array.Sort(incompatible);
+		//	Array.Sort(incompatible);
 
-			if (incompatible.Length > 0) {
-				Debug.LogWarning("[CompatibilityChecker] Incompatible mods detected: " + String.Join(", ", incompatible));
-				PopupDialog.SpawnPopupDialog("Incompatible Mods Detected", "Some installed mods are incompatible with this version of Kerbal Space Program. Some features may be broken or disabled. Please check for updates to the following mods:\n\n" + String.Join("\n", incompatible), "OK", false, HighLogic.Skin);
-			}
-		}
+		//	if (incompatible.Length > 0) {
+		//		Debug.LogWarning("[CompatibilityChecker] Incompatible mods detected: " + String.Join(", ", incompatible));
+		//		PopupDialog.SpawnPopupDialog("Incompatible Mods Detected", "Some installed mods are incompatible with this version of Kerbal Space Program. Some features may be broken or disabled. Please check for updates to the following mods:\n\n" + String.Join("\n", incompatible), "OK", false, HighLogic.Skin);
+		//	}
+		//}
 
-		private static IEnumerable<Type> getAllTypes() {
-			foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
-				Type[] types;
-				try {
-					types = assembly.GetTypes();
-				} catch (Exception) {
-					types = Type.EmptyTypes;
-				}
+		//private static IEnumerable<Type> getAllTypes() {
+		//	foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+		//		Type[] types;
+		//		try {
+		//			types = assembly.GetTypes();
+		//		} catch (Exception) {
+		//			types = Type.EmptyTypes;
+		//		}
 
-				foreach (var type in types) {
-					yield return type;
-				}
-			}
-		}
+		//		foreach (var type in types) {
+		//			yield return type;
+		//		}
+		//	}
+		//}
 	}
 }

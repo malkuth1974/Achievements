@@ -5,3 +5,8 @@ C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.dll
 C:\kerbal\ksp_achievements-master\Achievements\obj\Debug\Achievements.pdb
 C:\kerbal\(testMods)\GameData\Achievements\Achievements.dll
 C:\kerbal\(testMods)\GameData\Achievements\Achievements.pdb
+C:\Users\Danny\Documents\GitHub\Achievements\obj\Debug\Achievements.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\Achievements\obj\Debug\Achievements.dll
+C:\Users\Danny\Documents\GitHub\Achievements\obj\Debug\Achievements.pdb
+C:\Kerbal\CareerGame(Testing)\GameData\Achievements\Achievements.dll
+C:\Kerbal\CareerGame(Testing)\GameData\Achievements\Achievements.pdb

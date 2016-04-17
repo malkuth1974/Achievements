@@ -57,7 +57,7 @@ namespace Achievements {
 
 		internal static bool isInStableOrbit(this Vessel vessel) {
 			Orbit orbit = vessel.orbit;
-			float atmosphereAltitude = Math.Max(vessel.mainBody.maxAtmosphereAltitude, 0f);
+			double atmosphereAltitude = Math.Max(vessel.mainBody.atmosphereDepth, 0f);
 			return (orbit.patchStartTransition == Orbit.PatchTransitionType.INITIAL) &&
 				(orbit.patchEndTransition == Orbit.PatchTransitionType.FINAL) &&
 				(orbit.ApA > 0) && (orbit.PeA > 0) && (orbit.ApA > atmosphereAltitude) && (orbit.PeA > atmosphereAltitude);
@@ -66,7 +66,7 @@ namespace Achievements {
 		internal static bool isOnImpactTrajectory(this Vessel vessel) {
 			return vessel.getOrbitPatches().Any(o => {
 				try {
-					float atmosphereAltitude = Math.Max(o.referenceBody.maxAtmosphereAltitude, 0f);
+					double atmosphereAltitude = Math.Max(o.referenceBody.atmosphereDepth, 0f);
 					if (o.PeA <= atmosphereAltitude) {
 						return true;
 					}

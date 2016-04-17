@@ -20,7 +20,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using Toolbar;
+using KSP.UI.Screens;
+using KSPAchievements;
 
 namespace Achievements {
 	[KSPAddon(KSPAddon.Startup.EveryScene, false)]
@@ -31,47 +32,91 @@ namespace Achievements {
 		private const long CHECK_INTERVAL = 1500;
 		private const float REPUTATION_REWARD = 10;
 
-        internal static UpdateChecker UpdateChecker;
-
 		private long lastCheck = 0;
 		private AudioClip achievementEarnedClip;
 		private AudioSource achievementEarnedAudioSource;
 		private Toast toast;
 		private HashSet<Achievement> queuedEarnedAchievements = new HashSet<Achievement>();
 		private AchievementsWindow achievementsWindow;
+        private ApplicationLauncherButton AchButton;
+        private AchievementGUI AchievementGUI;
+        public Texture2D AchieveButton;
 #if LOCATION_PICKER
 		private LocationPicker locationPicker;
 #endif
-		private IButton windowButton;
-		private bool showGui = true;
+        //private IButton windowButton;
+        private bool showGui = true;
 
 		protected void Start() {
-            if (UpdateChecker == null)
-            {
-                UpdateChecker = new UpdateChecker();
-            }
+            //if (UpdateChecker == null)
+            //{
+            //    UpdateChecker = new UpdateChecker();
+            //}
 
 			achievementEarnedClip = GameDatabase.Instance.GetAudioClip("Achievements/achievement");
 			achievementEarnedAudioSource = gameObject.AddComponent<AudioSource>();
 			achievementEarnedAudioSource.clip = achievementEarnedClip;
-			achievementEarnedAudioSource.panLevel = 0;
+			achievementEarnedAudioSource.panStereo = 0;
 			achievementEarnedAudioSource.playOnAwake = false;
 			achievementEarnedAudioSource.loop = false;
 			achievementEarnedAudioSource.Stop();
 
-			windowButton = ToolbarManager.Instance.add("achievements", "achievements");
-			windowButton.TexturePath = "Achievements/button-normal";
-			windowButton.ToolTip = "Achievements";
-			windowButton.Visibility = new GameScenesVisibility(GameScenes.FLIGHT, GameScenes.TRACKSTATION, GameScenes.EDITOR);
-			windowButton.OnClick += (e) => toggleAchievementsWindow();
+			//windowButton = ToolbarManager.Instance.add("achievements", "achievements");
+			//windowButton.TexturePath = "Achievements/button-normal";
+			//windowButton.ToolTip = "Achievements";
+			//windowButton.Visibility = new GameScenesVisibility(GameScenes.FLIGHT, GameScenes.TRACKSTATION, GameScenes.EDITOR);
+			//windowButton.OnClick += (e) => toggleAchievementsWindow();
 
 			GameEvents.onShowUI.Add(onShowUI);
 			GameEvents.onHideUI.Add(onHideUI);
 		}
+        public void Awake()
+        {
+            LoadTextures();
+            CreateButtons();
+        }
+        public void LoadTextures()
+        {
+            AchieveButton = new Texture2D(36, 36, TextureFormat.RGBA32, false);
+            AchieveButton = GameDatabase.Instance.GetTexture("Achievements/AchievmentTrophyButton", false);
+        }
+        public void CreateButtons()
+        {
+            if (HighLogic.LoadedScene == GameScenes.SPACECENTER && this.AchButton == null)
+            {
+                this.AchButton = ApplicationLauncher.Instance.AddModApplication(
+                    this.AchieveButtonOn,
+                    this.AchievButtonOff,
+                    null,
+                    null,
+                    null,
+                    null,
+                    ApplicationLauncher.AppScenes.SPACECENTER,
+                    AchieveButton                 
+                    );
+                Debug.Log("Creating Achievemtn Buttons");
+            }
+            else { Debug.Log("achievment CreateButtons Failed"); }
+        }
+        private void AchieveButtonOn()
+        {
+            toggleAchievementsWindow();
+        }
 
-		internal void OnDestroy() {
-			windowButton.Destroy();
-
+        private void AchievButtonOff()
+        {
+            toggleAchievementsWindow();
+        }
+        public void DestroyButtons()
+        {
+            if (this.AchButton != null)
+            {
+                ApplicationLauncher.Instance.RemoveModApplication(this.AchButton);
+            }
+        }
+        internal void OnDestroy() {
+            //windowButton.Destroy();
+            DestroyButtons();
 			GameEvents.onShowUI.Remove(onShowUI);
 			GameEvents.onHideUI.Remove(onHideUI);
 		}
@@ -84,7 +129,7 @@ namespace Achievements {
 				achievementsWindow.update();
 			}
 
-			UpdateChecker.update();
+			//UpdateChecker.update();
 		}
 
 		private void updateAchievements() {
@@ -131,8 +176,7 @@ namespace Achievements {
 
 						toast = new Toast(achievement, EarnedAchievements.instance.earnedAchievements[achievement]);
 						playAchievementEarnedClip();
-						awardReputation(achievement);
-						highlightButton();
+						awardReputation(achievement);						
 					}
 				}
 
@@ -146,7 +190,7 @@ namespace Achievements {
 			}
 
 			// auto-close achievements list window
-			if ((EarnedAchievements.instance == null) || !windowButton.Visibility.Visible) {
+			if (EarnedAchievements.instance == null) {
 				achievementsWindow = null;
 			}
 
@@ -194,22 +238,26 @@ namespace Achievements {
 			GUI.depth = 0;
 		}
 
-		private void toggleAchievementsWindow() {
-			if (achievementsWindow == null) {
-				achievementsWindow = new AchievementsWindow(EarnedAchievements.instance.achievements, EarnedAchievements.instance.earnedAchievements,
-					UpdateChecker.Done && (UpdateChecker.UpdateAvailable == true));
-				achievementsWindow.closeCallback = () => {
-					achievementsWindow = null;
-				};
+        public void toggleAchievementsWindow()
+        {
+            if (achievementsWindow == null)
+            {
+                achievementsWindow = new AchievementsWindow(EarnedAchievements.instance.achievements, EarnedAchievements.instance.earnedAchievements,false);
+                achievementsWindow.closeCallback = () =>
+                {
+                    achievementsWindow = null;
+                };
 
-				// reset toolbar button
-				windowButton.TexturePath = "Achievements/button-normal";
-			} else {
-				achievementsWindow = null;
-			}
-		}
+                // reset toolbar button
+                //windowButton.TexturePath = "Achievements/button-normal";
+            }
+            else
+            {
+                achievementsWindow = null;
+            }
+        }
 
-		private void toggleLocationPicker() {
+        private void toggleLocationPicker() {
 #if LOCATION_PICKER
 			if (locationPicker == null) {
 				MapView.EnterMapView();
@@ -237,12 +285,6 @@ namespace Achievements {
                 //Reputation.Instance.AddReputation(REPUTATION_REWARD, "Achievement: " + achievement.getTitle());
                 Reputation.Instance.AddReputation(REPUTATION_REWARD,TransactionReasons.None);
 			}
-		}
-
-		private void highlightButton() {
-			if (achievementsWindow == null) {
-				windowButton.TexturePath = "Achievements/button-highlight";
-			}
-		}
+		}		
 	}
 }

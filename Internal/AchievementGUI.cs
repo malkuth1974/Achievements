@@ -38,14 +38,15 @@ namespace Achievements {
 		internal Callback clickCallback;
 
 		private Achievement achievement;
+        private Achievements achievements;
 		private AchievementEarn earn;
-		private bool addon;
-		private Texture2D toastTex;
+		private bool addon;       
+        private Texture2D toastTex;
 		private Texture2D toastNotEarnedTex;
 		private Texture2D toastAddonTex;
 		private Texture2D toastAddonNotEarnedTex;
 		private Texture2D toastExpandedTex;
-		private Texture2D toastAddonExpandedTex;
+		private Texture2D toastAddonExpandedTex;       
 		private GUIStyle bgStyle;
 		private GUIStyle bgNotEarnedStyle;
 		private GUIStyle bgAddonStyle;
@@ -60,21 +61,20 @@ namespace Achievements {
 		private bool hover;
 		private bool mouseDown;
 
-		internal AchievementGUI(Achievement achievement, AchievementEarn earn) {
+        internal AchievementGUI(Achievement achievement, AchievementEarn earn) {
 			this.achievement = achievement;
 			this.earn = earn;
 
 			// achievements from other assemblies are always addons
 			addon = achievement.isAddon() || !achievement.GetType().Assembly.Equals(typeof(Achievements).Assembly);
-
-			toastTex = GameDatabase.Instance.GetTexture("Achievements/toast", false);
+            
+            toastTex = GameDatabase.Instance.GetTexture("Achievements/toast", false);
 			toastNotEarnedTex = GameDatabase.Instance.GetTexture("Achievements/toast-not-earned", false);
 			toastAddonTex = GameDatabase.Instance.GetTexture("Achievements/toast-addon", false);
 			toastAddonNotEarnedTex = GameDatabase.Instance.GetTexture("Achievements/toast-addon-not-earned", false);
 			toastExpandedTex = GameDatabase.Instance.GetTexture("Achievements/toast-expanded", false);
-			toastAddonExpandedTex = GameDatabase.Instance.GetTexture("Achievements/toast-addon-expanded", false);
-
-			int width = TEX_WIDTH + 300;
+			toastAddonExpandedTex = GameDatabase.Instance.GetTexture("Achievements/toast-addon-expanded", false);            
+            int width = TEX_WIDTH + 300;
 			int height = Screen.height / 2;
 
 			bgStyle = new GUIStyle();
@@ -129,8 +129,8 @@ namespace Achievements {
 			titleNotEarnedStyle.fontSize = TITLE_FONT_SIZE;
 			titleNotEarnedStyle.fontStyle = FontStyle.Bold;
 		}
-
-		internal void draw(bool showCounter, bool showAddonIndicator, bool expanded) {
+      
+        internal void draw(bool showCounter, bool showAddonIndicator, bool expanded) {
 			if (earn == null) {
 				expanded = false;
 			}
