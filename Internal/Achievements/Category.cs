@@ -31,6 +31,7 @@ namespace Achievements {
         internal static readonly Category CONTRACTS = new Category("Contracts");
         internal static readonly Category FUNDS = new Category("Funds");
         internal static readonly Category REPUTATION = new Category("Reputation");
+        //internal static readonly Category KSP_Worlds_First = new Category("Ksp Worlds First Orginization");
 
 		internal readonly string title;
 
