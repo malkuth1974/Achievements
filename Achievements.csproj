@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Kerbal\CareerGame%28Testing%29\GameData\Achievements\</OutputPath>
+    <OutputPath>..\Kerbal Space Program\GameData\Achievements\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,18 +41,6 @@
     </Reference>
     <Reference Include="KSPAssets">
       <HintPath>..\..\..\..\..\Steam\steamapps\common\Kerbal Space Program\KSP_Data\Managed\KSPAssets.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="KSPCore">
-      <HintPath>..\..\..\..\..\Steam\steamapps\common\Kerbal Space Program\KSP_Data\Managed\KSPCore.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="KSPUtil">
-      <HintPath>..\..\..\..\..\Steam\steamapps\common\Kerbal Space Program\KSP_Data\Managed\KSPUtil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MiscUtil-r285">
-      <HintPath>..\..\..\..\..\Steam\steamapps\common\Kerbal Space Program\KSP_Data\Managed\MiscUtil-r285.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -122,32 +110,15 @@
     <Compile Include="Internal\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="etc\achievements.psd" />
-    <None Include="etc\button-highlight.tga" />
-    <None Include="etc\button-normal.tga" />
-    <None Include="etc\button.psd" />
-    <None Include="etc\toast-addon-expanded.tga" />
-    <None Include="etc\toast-addon-not-earned.tga" />
-    <None Include="etc\toast-addon.tga" />
-    <None Include="etc\toast-expanded.tga" />
-    <None Include="etc\toast-not-earned.tga" />
-    <None Include="etc\toast.tga" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="CHANGES.txt" />
-    <Content Include="etc\achievement.wav" />
-    <Content Include="etc\screenshot-all.png" />
-    <Content Include="etc\screenshot-spaceport.png" />
-    <Content Include="etc\screenshot.png" />
     <Content Include="LICENSE.txt" />
     <Content Include="SUGGESTIONS.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>del $(TargetDir)*.pdb $(TargetDir)UnityEngine.dll $(TargetDir)Toolbar.dll $(TargetDir)Assembly-CSharp*.dll $(TargetDir)Mono.*.dll $(TargetDir)TDx*.dll
-xcopy /Y $(ProjectDir)etc\*.tga $(TargetDir)
-xcopy /Y $(ProjectDir)etc\*.wav $(TargetDir)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

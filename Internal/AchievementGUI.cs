@@ -38,7 +38,7 @@ namespace Achievements {
 		internal Callback clickCallback;
 
 		private Achievement achievement;
-        private Achievements achievements;
+        //private Achievements achievements;
 		private AchievementEarn earn;
 		private bool addon;       
         private Texture2D toastTex;

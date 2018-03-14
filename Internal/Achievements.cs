@@ -39,7 +39,7 @@ namespace Achievements {
 		private HashSet<Achievement> queuedEarnedAchievements = new HashSet<Achievement>();
 		private AchievementsWindow achievementsWindow;
         private ApplicationLauncherButton AchButton;
-        private AchievementGUI AchievementGUI;
+        //private AchievementGUI AchievementGUI;
         public Texture2D AchieveButton;
 #if LOCATION_PICKER
 		private LocationPicker locationPicker;

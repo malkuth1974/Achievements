@@ -69,7 +69,7 @@ namespace Achievements {
 
 				// load scenario instantly
 				if (scenario.targetScenes.Contains(HighLogic.LoadedScene)) {
-					scenario.Load(ScenarioRunner.fetch);
+					scenario.Load(ScenarioRunner.Instance);
 				}
 			}
 		}

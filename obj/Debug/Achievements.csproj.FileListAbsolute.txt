@@ -10,3 +10,8 @@ C:\Users\Danny\Documents\GitHub\Achievements\obj\Debug\Achievements.dll
 C:\Users\Danny\Documents\GitHub\Achievements\obj\Debug\Achievements.pdb
 C:\Kerbal\CareerGame(Testing)\GameData\Achievements\Achievements.dll
 C:\Kerbal\CareerGame(Testing)\GameData\Achievements\Achievements.pdb
+C:\KSPFolder\Achievements-master\obj\Debug\Achievements.csproj.CoreCompileInputs.cache
+C:\KSPFolder\Achievements-master\obj\Debug\Achievements.dll
+C:\KSPFolder\Achievements-master\obj\Debug\Achievements.pdb
+C:\KSPFolder\Kerbal Space Program\GameData\Achievements\Achievements.dll
+C:\KSPFolder\Kerbal Space Program\GameData\Achievements\Achievements.pdb
